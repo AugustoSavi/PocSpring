@@ -1,4 +1,4 @@
-package com.poc.api.pessoa;
+package com.poc.pessoa;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -15,8 +15,8 @@ import java.util.UUID;
 @Getter
 @Setter
 @ToString
-@RequiredArgsConstructor
 @Entity
+@RequiredArgsConstructor
 @Table(name = "Pessoas")
 public class Pessoa implements Serializable {
 

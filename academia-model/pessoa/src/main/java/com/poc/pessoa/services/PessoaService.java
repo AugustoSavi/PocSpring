@@ -1,18 +1,19 @@
-package com.poc.api.pessoa.services;
+package com.poc.pessoa.services;
 
-import com.poc.api.pessoa.Pessoa;
-import com.poc.api.pessoa.repositories.PessoaRepository;
-import com.poc.api.pessoa.representations.PessoaDto;
+import com.poc.pessoa.Pessoa;
+import com.poc.pessoa.repositories.PessoaRepository;
+import com.poc.pessoa.representations.PessoaDto;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
+@AllArgsConstructor
 public class PessoaService {
-    @Autowired
+
     private PessoaRepository pessoaRepository;
 
-    public Pessoa save(PessoaDto pessoaDto){
+    public Pessoa save(PessoaDto pessoaDto) {
         var pessoa = new Pessoa();
         BeanUtils.copyProperties(pessoaDto, pessoa);
         return pessoaRepository.save(pessoa);

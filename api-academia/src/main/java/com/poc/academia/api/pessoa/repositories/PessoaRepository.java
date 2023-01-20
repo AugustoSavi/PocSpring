@@ -1,6 +1,6 @@
-package com.poc.api.pessoa.repositories;
+package com.poc.academia.api.pessoa.repositories;
 
-import com.poc.api.pessoa.Pessoa;
+import com.poc.academia.api.pessoa.Pessoa;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

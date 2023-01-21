@@ -25,7 +25,7 @@ public class Pessoa implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID uuid;
+    private UUID id;
     @Column(name = "NOME", nullable = false)
     private String nome;
 
@@ -44,7 +44,7 @@ public class Pessoa implements Serializable {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
         Pessoa pessoa = (Pessoa) o;
-        return uuid != null && Objects.equals(uuid, pessoa.uuid);
+        return id != null && Objects.equals(id, pessoa.id);
     }
 
     @Override

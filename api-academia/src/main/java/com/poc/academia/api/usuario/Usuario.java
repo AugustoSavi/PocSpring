@@ -1,20 +1,17 @@
-package com.poc.academia.api.pessoa;
+package com.poc.academia.api.usuario;
 
-import com.poc.academia.api.aula.Aula;
+import com.poc.academia.api.pessoa.Pessoa;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import org.hibernate.Hibernate;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.hibernate.validator.constraints.br.CPF;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
-import java.util.Set;
 import java.util.UUID;
 
 @Getter
@@ -22,21 +19,20 @@ import java.util.UUID;
 @ToString
 @Entity
 @RequiredArgsConstructor
-@Table(name = "PESSOAS")
-public class Pessoa implements Serializable {
+@Table(name = "USUARIOS")
+public class Usuario implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
-    @Column(name = "NOME", nullable = false)
-    private String nome;
+    @Column(name = "user", nullable = false)
+    private String user;
 
-    @Column(name = "CPF", length = 11)
-    @CPF(message = "CPF inválido")
-    private String cpf;
+    @Column(name = "password", nullable = false)
+    private String password;
 
-    @ManyToMany(mappedBy = "pessoas", fetch = FetchType.LAZY)
-    private Set<Aula> aulas;
+    @Column(name = "ativo")
+    private Boolean ativo = true;
 
     @CreationTimestamp
     private LocalDateTime created_at;
@@ -44,16 +40,21 @@ public class Pessoa implements Serializable {
     @UpdateTimestamp
     private LocalDateTime updated_at;
 
+    @OneToOne
+    @JoinColumn(name = "PESSOAS", referencedColumnName = "ID")
+    private Pessoa pessoa;
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Pessoa pessoa = (Pessoa) o;
-        return id != null && Objects.equals(id, pessoa.id);
+        if (o == null || getClass() != o.getClass()) return false;
+        Usuario usuario = (Usuario) o;
+        return user.equals(usuario.user) && password.equals(usuario.password);
     }
 
     @Override
     public int hashCode() {
-        return getClass().hashCode();
+        return Objects.hash(user, password);
     }
 }

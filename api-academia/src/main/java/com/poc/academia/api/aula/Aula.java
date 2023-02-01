@@ -1,6 +1,5 @@
 package com.poc.academia.api.aula;
 
-import com.poc.academia.api.pessoa.Pessoa;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
@@ -25,7 +24,7 @@ public class Aula {
     private UUID id;
 
     @NotBlank
-    private String descrição;
+    private String descricao;
 
     @OneToMany(mappedBy = "aula", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<AulaAluno> alunos = Collections.emptyList();

@@ -32,4 +32,9 @@ public class AulaAluno {
     @ManyToOne
     @JoinColumn(name = "I_PESSOA", referencedColumnName = "ID")
     private Pessoa pessoa;
+
+    public AulaAluno(Aula aula, Pessoa pessoa) {
+        this.aula = aula;
+        this.pessoa = pessoa;
+    }
 }

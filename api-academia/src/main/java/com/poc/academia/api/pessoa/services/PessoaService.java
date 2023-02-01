@@ -26,7 +26,7 @@ public class PessoaService {
 
     public Pessoa update(PessoaDto pessoaDto) {
         Optional<Pessoa> pessoaOptional = findOne(pessoaDto.getId());
-        if (pessoaOptional.isEmpty()){
+        if (pessoaOptional.isEmpty()) {
             return null;
         }
         var pessoa = new Pessoa();
@@ -39,13 +39,13 @@ public class PessoaService {
         return pessoaRepository.findAll(pageable);
     }
 
-    public Optional<Pessoa> findOne(UUID id){
+    public Optional<Pessoa> findOne(UUID id) {
         return pessoaRepository.findById(id);
     }
 
-    public Optional<Pessoa> delete(UUID id){
+    public Optional<Pessoa> delete(UUID id) {
         Optional<Pessoa> pessoaOptional = findOne(id);
-        if (pessoaOptional.isEmpty()){
+        if (pessoaOptional.isEmpty()) {
             return Optional.empty();
         }
         pessoaRepository.delete(pessoaOptional.get());

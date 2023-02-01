@@ -1,6 +1,5 @@
 package com.poc.academia.api.pessoa;
 
-import com.poc.academia.api.aula.Aula;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +13,6 @@ import org.hibernate.validator.constraints.br.CPF;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
-import java.util.Set;
 import java.util.UUID;
 
 @Getter
@@ -34,9 +32,6 @@ public class Pessoa implements Serializable {
     @Column(name = "CPF", length = 11)
     @CPF(message = "CPF inválido")
     private String cpf;
-
-    @ManyToMany(mappedBy = "pessoas", fetch = FetchType.LAZY)
-    private Set<Aula> aulas;
 
     @CreationTimestamp
     private LocalDateTime created_at;

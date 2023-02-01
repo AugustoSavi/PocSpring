@@ -1,5 +1,6 @@
 package com.poc.academia.api.aula;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.poc.academia.api.pessoa.Pessoa;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -10,7 +11,6 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
-import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
@@ -18,21 +18,18 @@ import java.util.UUID;
 @Setter
 @Entity
 @RequiredArgsConstructor
-@Table(name = "AULAS")
-public class Aula {
+@Table(name = "AULAS_ALUNOS")
+public class AulaAluno {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
-    @NotBlank
-    private String descrição;
+    @ManyToOne
+    @JoinColumn(name = "I_AULA", referencedColumnName = "ID")
+    @JsonIgnore
+    private Aula aula;
 
-    @OneToMany(mappedBy = "aula", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<AulaAluno> alunos = Collections.emptyList();
-
-    @CreationTimestamp
-    private LocalDateTime created_at;
-
-    @UpdateTimestamp
-    private LocalDateTime updated_at;
+    @ManyToOne
+    @JoinColumn(name = "I_PESSOA", referencedColumnName = "ID")
+    private Pessoa pessoa;
 }

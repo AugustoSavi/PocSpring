@@ -1,5 +1,6 @@
 package com.poc.academia.api.aula;
 
+import com.poc.academia.api.aula.enums.TipoAula;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
@@ -25,6 +26,14 @@ public class Aula {
 
     @NotBlank
     private String descricao;
+
+    @Column(columnDefinition = "TIMESTAMP")
+    private LocalDateTime dataHoraInicio;
+
+    @Column(columnDefinition = "TIMESTAMP")
+    private LocalDateTime dataHoraFinal;
+
+    private TipoAula tipoAula;
 
     @OneToMany(mappedBy = "aula", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<AulaAluno> alunos = Collections.emptyList();

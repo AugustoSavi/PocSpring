@@ -1,20 +1,15 @@
 package com.poc.academia.api.pessoa;
 
-import com.poc.academia.api.aula.AulaAluno;
+import com.poc.academia.api.tenant.EntidadeEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.Hibernate;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.validator.constraints.br.CPF;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
-import java.util.Collections;
-import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -24,7 +19,7 @@ import java.util.UUID;
 @Entity
 @RequiredArgsConstructor
 @Table(name = "PESSOAS")
-public class Pessoa implements Serializable {
+public class Pessoa extends EntidadeEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -35,12 +30,6 @@ public class Pessoa implements Serializable {
     @Column(name = "CPF", length = 11)
     @CPF(message = "CPF inválido")
     private String cpf;
-
-    @CreationTimestamp
-    private LocalDateTime created_at;
-
-    @UpdateTimestamp
-    private LocalDateTime updated_at;
 
     @Override
     public boolean equals(Object o) {

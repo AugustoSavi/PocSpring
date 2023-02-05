@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -29,10 +30,10 @@ public class PessoaService {
         if (pessoaOptional.isEmpty()) {
             return null;
         }
-        var pessoa = new Pessoa();
-        BeanUtils.copyProperties(pessoaOptional, pessoa);
-        BeanUtils.copyProperties(pessoaDto, pessoa);
-        return pessoaRepository.save(pessoa);
+        BeanUtils.copyProperties(pessoaDto, pessoaOptional.get());
+        pessoaOptional.get().setUpdatedIn(LocalDateTime.now());
+        pessoaOptional.get().setVersion(pessoaOptional.get().getVersion() + 1);
+        return pessoaRepository.save(pessoaOptional.get());
     }
 
     public Page<Pessoa> findAll(Pageable pageable) {

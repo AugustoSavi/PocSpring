@@ -1,6 +1,5 @@
 package com.poc.academia.api.usuario;
 
-import com.poc.academia.api.tenant.DatabaseEntity;
 import com.poc.academia.api.usuario.enums.Role;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
@@ -13,10 +12,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.io.Serializable;
-import java.util.Collection;
-import java.util.List;
-import java.util.Objects;
-import java.util.UUID;
+import java.util.*;
 
 @Getter
 @Setter
@@ -24,7 +20,7 @@ import java.util.UUID;
 @Entity
 @RequiredArgsConstructor
 @Table(name = "USUARIOS")
-public class Usuario extends DatabaseEntity implements Serializable, UserDetails {
+public class Usuario implements Serializable, UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -44,6 +40,9 @@ public class Usuario extends DatabaseEntity implements Serializable, UserDetails
 
     @Column(name = "ativo")
     private Boolean ativo = true;
+
+    @OneToMany(mappedBy = "usuario")
+    private List<UsuarioDatabase> usuarioDatabases = Collections.emptyList();
 
 
     @Override

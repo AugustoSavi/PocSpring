@@ -3,15 +3,8 @@ package com.poc.academia.api.aula;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.poc.academia.api.pessoa.Pessoa;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
+import lombok.*;
 
-import java.time.LocalDateTime;
-import java.util.List;
 import java.util.UUID;
 
 @Getter

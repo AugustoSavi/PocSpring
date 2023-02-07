@@ -1,6 +1,6 @@
 package com.poc.academia.api.pessoa;
 
-import com.poc.academia.api.tenant.EntidadeEntity;
+import com.poc.academia.api.contexto.EntidadeEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

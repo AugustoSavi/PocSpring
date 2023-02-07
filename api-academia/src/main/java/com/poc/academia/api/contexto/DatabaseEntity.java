@@ -1,4 +1,4 @@
-package com.poc.academia.api.tenant;
+package com.poc.academia.api.contexto;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;

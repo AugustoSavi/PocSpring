@@ -1,5 +1,6 @@
 package com.poc.academia.api.contexto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
@@ -23,6 +24,7 @@ public class Entidade {
     private String descricao;
 
     @NotNull
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "I_DATABASES")
     private Database database;

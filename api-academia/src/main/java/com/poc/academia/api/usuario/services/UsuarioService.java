@@ -1,8 +1,8 @@
 package com.poc.academia.api.usuario.services;
 
 import com.poc.academia.api.auth.configs.JwtService;
-import com.poc.academia.api.auth.represetations.AuthenticationRequest;
-import com.poc.academia.api.auth.represetations.AuthenticationResponse;
+import com.poc.academia.api.auth.representations.AuthenticationRequest;
+import com.poc.academia.api.auth.representations.AuthenticationResponse;
 import com.poc.academia.api.usuario.Usuario;
 import com.poc.academia.api.usuario.repositories.UsuarioRepository;
 import com.poc.academia.api.usuario.representations.UsuarioDto;

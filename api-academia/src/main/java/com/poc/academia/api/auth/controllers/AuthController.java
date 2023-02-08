@@ -1,7 +1,7 @@
 package com.poc.academia.api.auth.controllers;
 
-import com.poc.academia.api.auth.represetations.AuthenticationRequest;
-import com.poc.academia.api.auth.represetations.AuthenticationResponse;
+import com.poc.academia.api.auth.representations.AuthenticationRequest;
+import com.poc.academia.api.auth.representations.AuthenticationResponse;
 import com.poc.academia.api.usuario.representations.UsuarioDto;
 import com.poc.academia.api.usuario.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;

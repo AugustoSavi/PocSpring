@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.Collections;
 import java.util.List;
 
 @Getter
@@ -25,5 +26,5 @@ public class Database {
 
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "database")
-    private List<Entidade> entidade;
+    private List<Entidade> entidades = Collections.emptyList();
 }

@@ -1,9 +1,8 @@
-package com.poc.academia.api.aula.represetations;
+package com.poc.academia.api.aula.representations;
 
 import com.poc.academia.api.aula.Aula;
 import com.poc.academia.api.aula.AulaAluno;
 import com.poc.academia.api.pessoa.Pessoa;
-import com.poc.academia.api.pessoa.representations.PessoaDto;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

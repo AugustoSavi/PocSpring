@@ -1,6 +1,7 @@
 package com.poc.academia.api.contexto;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -21,6 +22,7 @@ public class Entidade {
     @Column(name = "descricao", nullable = false, unique = true)
     private String descricao;
 
+    @NotNull
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "I_DATABASES")
     private Database database;

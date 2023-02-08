@@ -1,4 +1,4 @@
-package com.poc.academia.api.auth.represetations;
+package com.poc.academia.api.auth.representations;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

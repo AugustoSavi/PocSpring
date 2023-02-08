@@ -1,9 +1,8 @@
-package com.poc.academia.api.aula.Controllers;
+package com.poc.academia.api.aula.controllers;
 
 import com.poc.academia.api.aula.Aula;
-import com.poc.academia.api.aula.represetations.AulaDto;
+import com.poc.academia.api.aula.representations.AulaDto;
 import com.poc.academia.api.aula.services.AulaService;
-import com.poc.academia.api.pessoa.Pessoa;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;

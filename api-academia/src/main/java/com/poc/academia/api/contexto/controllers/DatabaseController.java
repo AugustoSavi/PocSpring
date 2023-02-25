@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.Optional;
 
 @RestController
@@ -33,6 +34,14 @@ public class DatabaseController {
         return ResponseEntity
                 .status(database.isPresent() ? HttpStatus.FOUND : HttpStatus.NOT_FOUND)
                 .body(database);
+    }
+
+    @GetMapping("{id}/filiais")
+    public ResponseEntity<Object> readEntidades(@PathVariable final Long id) {
+        Optional<Database> database = databaseService.findOne(id);
+        return ResponseEntity
+                .status(database.isPresent() ? HttpStatus.FOUND : HttpStatus.NOT_FOUND)
+                .body(database.isPresent() ? database.get().getEntidades() : Collections.emptyList());
     }
 
     @GetMapping

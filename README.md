@@ -15,7 +15,6 @@
 
 ## Como rodar o projeto
 
-### terminal 1 na raiz do projeto
 1- iniciar serviço do docker caso necessario
 
 ```shell
@@ -28,14 +27,12 @@ sudo service docker start
 sudo docker-compose up --build
 ```
 
-### terminal 2 na raiz do projeto
-
-1- rodar o spring
+3- rodar o spring
 ```shell
 mvn spring-boot:run
 ```
 
-## Acessar o s3 local:
+## Acesso o s3 local:
 
 http://localhost:9444/ui
 

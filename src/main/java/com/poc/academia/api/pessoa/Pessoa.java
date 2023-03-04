@@ -31,6 +31,9 @@ public class Pessoa extends EntidadeEntity implements Serializable {
     @CPF(message = "CPF inválido")
     private String cpf;
 
+    @Column(name = "URL_IMAGEM")
+    private String urlImagem;
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

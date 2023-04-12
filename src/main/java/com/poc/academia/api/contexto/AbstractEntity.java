@@ -34,5 +34,5 @@ public abstract class AbstractEntity {
 
     @Version
     @Column(name = "AUD_VERSAO")
-    private Integer version;
+    private Integer version = 0;
 }

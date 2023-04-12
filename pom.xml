@@ -96,6 +96,14 @@
 			<version>1.12.411</version>
 		</dependency>
 
+		<!--testes unitarios -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<version>5.8.1</version>
+			<scope>test</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>
